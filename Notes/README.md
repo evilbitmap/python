@@ -1,2 +1,2 @@
-# 30.9.
+# 30.9. 2021
 test z algoritmizace. (úvod do programování)
