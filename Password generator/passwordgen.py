@@ -1,26 +1,25 @@
 import random
 import string
+from tabulate import tabulate
+
+
+
+
 def genpass(PassLenght):
-    return "".join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits,k=PassLenght))
+    return "".join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits + "!_.-@?",k=PassLenght))
 
 def main():
-        print("".join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits,k=5)))
+        PasslenghtInput=int(input("choose a lenght >"))
+        PassAmountInput=int(input("choose a amount of passwords to generate >"))
+        passwords = []
+        for i in range(PassAmountInput):
+            passwords.append([
+                i+1,
+                genpass(PasslenghtInput)
+        ])
+        print(tabulate(passwords, headers=["ID", "Password"], numalign='center', tablefmt='grid'))
 
 
 
 if (__name__ == "__main__"):
-    print("___")
-    print("choose a lenght...")
-    print("___")
-    PasslenghtInput=int(input(">"))
-    print("___")
-    print("choose a amount of passwords to generate...")
-    print("___")
-    PassAmountInput=int(input(">"))
-    for i in range(int(PassAmountInput)):
-        print(genpass(int(PasslenghtInput)))
-    
-    print("---------------------------------------")
-    
-    for x in range(PassAmountInput):
-        print(f'{x+1} {genpass(PasslenghtInput)}')
+    main()
