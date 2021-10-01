@@ -3,7 +3,10 @@ import string
 from tabulate import tabulate
 
 
-
+def savefile(x):
+        f = open("passwords.txt", "w")
+        f.write(tabulate(x, headers=["ID", "Password"], numalign='center', tablefmt='grid'))
+        f.close()
 
 def genpass(PassLenght):
     return "".join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits + "!_.-@?",k=PassLenght))
@@ -18,8 +21,7 @@ def main():
                 genpass(PasslenghtInput)
         ])
         print(tabulate(passwords, headers=["ID", "Password"], numalign='center', tablefmt='grid'))
-
-
+        savefile(passwords)
 
 if (__name__ == "__main__"):
     main()
