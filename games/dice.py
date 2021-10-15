@@ -24,9 +24,9 @@ def savefile():
     global computerPoints
     global userProcentage
     global computerProcentage
-    f = open("score (dice.py).txt", "w")
-    f.write(f"your score: {userPoints} ; computer score: {computerPoints} \n {userProcentage} ; {computerProcentage} \n games played: {gamesPlayed}")
-    f.close
+    score_file = open("score (dice.py).txt", "w")
+    score_file.write(f"your score: {userPoints} ; computer score: {computerPoints} \n {userProcentage} ; {computerProcentage} \n games played: {gamesPlayed}")
+    score_file.close
 
 #vygeneruje náhodný číslo
 def generateRandomNum():
@@ -62,6 +62,8 @@ def main():
         generateRandomNum()
         ifLowerOrHigher()
 
+
+#vypočíta procenta
 def calculateProcentage():
     global userPoints
     global computerPoints
@@ -74,6 +76,13 @@ def calculateProcentage():
     computerProcentage = computerPoints / gamesPlayed
     computerProcentage = computerProcentage * 100
 
+def writeSavedScore():
+    savedScore = open("score (dice.py).txt", "r")
+    print(savedScore.read())
+    print("")
+    print("press any key to go back")
+    wait()
+    commands()
 
 
 
@@ -106,7 +115,7 @@ def commands():
     global computerPoints
     cls()
     print("commands:")
-    print("         reset ; exit ; save score")
+    print("         reset ; exit ; save score ; print saved score")
     print("type back to go back")
     userinput = input(">")
     if(userinput == "reset"):
@@ -120,6 +129,9 @@ def commands():
 
     elif(userinput == "exit"):
         exit()
+    
+    elif(userinput == "print saved score"):
+        writeSavedScore()
     
 
 
