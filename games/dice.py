@@ -2,29 +2,29 @@ import random as rnd
 import msvcrt
 import os
 
-
+#definice
 randomNumberUser = 0
 randomNumberPC = 0
 userPoints = 0
 computerPoints = 0
 
+#command pro vymazání console
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
-
+#příkáz pro čekání na jakejkoliv input key
 def wait():
     msvcrt.getch()
 
-
+#vygeneruje náhodný číslo
 def generateRandomNum():
     global randomNumberUser
     global randomNumberPC
 
-    #vygeneruje náhodný číslo
     randomNumberPC = rnd.randint(1,6)
     randomNumberUser = rnd.randint(1,6)
     
-
+#tělo programu, ukazuje body, nahodný čísla a čeká na input
 def main():
     global userPoints
     global computerPoints
@@ -41,14 +41,7 @@ def main():
     print("type commands to see commands")
     print("--------------------------------")
     userInput = input("")
-    if(userInput == "exit"):
-        exit()
-
-    elif(userInput == "reset"):
-        userPoints = 0
-        computerPoints = 0
-        main()
-    elif(userInput == "commands"):
+    if(userInput == "commands"):
         commands()
 
     else:
@@ -56,6 +49,7 @@ def main():
         ifLowerOrHigher()
 
 
+#určuje kdo vyhrál
 def ifLowerOrHigher():
     global userPoints
     global computerPoints
@@ -70,10 +64,21 @@ def ifLowerOrHigher():
     elif(randomNumberUser == randomNumberPC):
         main()
 
+#uživatelské příkazy
 def commands():
+    global userPoints
+    global computerPoints
+    cls()
     print("commands:")
     print("         reset ; exit")
     print("type back to go back")
+    userinput = input(">")
+    if(userinput == "reset"):
+        userPoints = 0
+        computerPoints = 0
+        main()
+    elif(userinput == "exit"):
+        exit()
 
 
 if (__name__ == "__main__"):
