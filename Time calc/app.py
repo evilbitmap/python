@@ -1,5 +1,4 @@
 from tkinter import *
-
 # window
 root = Tk()
 frame = Frame(root)
@@ -7,8 +6,8 @@ frame2 = Frame(root)
 root.title("swag martin pek")
 root.geometry("650x200")
 root.resizable(False, False)
-
 font = ("Comic Sans MS", 8)
+
 
 def checkTextBoxs():
     if(TextboxSekundy.get() == ""):
