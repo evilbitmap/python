@@ -1,3 +1,5 @@
+Sec.get = textbox Sekunda
+
 def převést():
     if(Sec.get() > 59):
         sekunda = Sec.get() % 60
