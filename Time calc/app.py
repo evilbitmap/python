@@ -17,13 +17,13 @@ def checkTextBoxs():
     if(TextboxHodiny.get() == ""):
         TextboxHodiny.insert(0, 0)
 
-    converter(int(TextboxHodiny.get()), int(TextboxMinuty.get()), int(TextboxSekundy.get()))
+    converter(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
 
 
 def converter(h, m, s):
-    # sekundy
     if(s <= 59):
         labelSekundy.config(text=s)
+    # pokud číslo je větší než 59 tak konvertuj
     elif(s > 59):
         sZbytek = s % 60
         labelSekundy.config(text=sZbytek)
@@ -31,6 +31,8 @@ def converter(h, m, s):
         minuta = minuta + m
         labelMinuty.config(text=minuta)
         m = minuta
+
+
     # minuty
     if(m <= 59):
         labelMinuty.config(text=m)
@@ -41,6 +43,10 @@ def converter(h, m, s):
         hodina = hodina + h
         labelhodiny.config(text=hodina)
         h = hodina
+
+
+
+
     # hodiny
     if(h <= 59):
         labelhodiny.config(text=h)
