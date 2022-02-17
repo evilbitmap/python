@@ -1,0 +1,18 @@
+# txt
+s = 15
+m = 2.5
+
+m = 2.5 * 60 = 150
+
+mZbytek = m(150) % 60 = 30
+
+s = s(15) + mZbytek(30) = 45
+sZbytek = s(45) % 60 = 45
+
+m2 = (s(45) - sZbytek(45)) / 60 = 0
+m = (m(150) - mZbytek(30)) / 60 + m2(0) = 2
+
+s = s(45) % 60 = 45
+
+print(m)
+print(s)
