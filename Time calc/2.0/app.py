@@ -1,21 +1,15 @@
+from cgitb import text
 from tkinter import *
 # window
-# root
 root = Tk()
-# frame - na layout
 frame = Frame(root)
 frame2 = Frame(root)
-# název
 root.title("swag martin pek")
-# velikost
 root.geometry("650x200")
-# window se nebude moct měnit
 root.resizable(False, False)
-# font
 font = ("Comic Sans MS", 8)
 
 
-# zkontroluje textboxy, jestli jsou prázdne tak doplní 0 aby to šlo potom počítat
 def checkTextBoxs():
     if(TextboxSekundy.get() == ""):
         TextboxSekundy.insert(0, 0)
@@ -27,7 +21,6 @@ def checkTextBoxs():
     converter(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
 
 
-# tady je to kouzlo
 def converter(h, m, s):
     # aby číslo bylo bez decimálního čísla musíme ho vykrátit 60
     # potom se zjistí zbytek
@@ -73,7 +66,7 @@ def converter(h, m, s):
 
 
 def main():
-    print("start...")
+    print("bruh main")
 
 
 if __name__ == "__main__":
@@ -99,26 +92,26 @@ TextboxSekundy = Entry(frame, font=font)
 TextboxSekundy.grid(row=0, column=5)
 
 # Mezera
-Label(frame2, text="Výsledek", font=("Comic Sans MS", 16), anchor=CENTER).grid(row=1)
+Label(frame2, text="Výsledek", font=("Comic Sans MS", 16), anchor=CENTER).grid(row=0, column=0)
 # dolní část
 
 # Label Hodiny výsledek
-Label(frame2, text="Hodiny: ").grid(row=2, column=0)
+Label(frame2, text="Hodiny: ").grid(row=1, column=0)
 labelhodiny = Label(frame2, text="", font=font)
-labelhodiny.grid(row=2, column=1)
+labelhodiny.grid(row=1, column=1)
 
 # Label Minuty výsledek
-Label(frame2, text="Minuty: ").grid(row=3, column=0)
+Label(frame2, text="Minuty: ").grid(row=2, column=0)
 labelMinuty = Label(frame2, text="", font=font)
-labelMinuty.grid(row=3, column=1)
+labelMinuty.grid(row=2, column=1)
 
 # Label Sekundy výsledek
-Label(frame2, text="Sekundy: ").grid(row=4, column=0)
+Label(frame2, text="Sekundy: ").grid(row=3, column=0)
 labelSekundy = Label(frame2, text="", font=font)
-labelSekundy.grid(row=4, column=1)
+labelSekundy.grid(row=3, column=1)
 
 # button převést
-Button(frame2, text="převést", command=checkTextBoxs).grid(row=5)
+Button(frame2, text="převést", command=checkTextBoxs).grid(row=4)
 
 frame.pack()
 frame2.pack()
