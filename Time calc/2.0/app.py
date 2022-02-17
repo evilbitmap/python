@@ -1,14 +1,21 @@
 from tkinter import *
 # window
+# root
 root = Tk()
+# frame - na layout
 frame = Frame(root)
 frame2 = Frame(root)
+# název
 root.title("swag martin pek")
+# velikost
 root.geometry("650x200")
+# window se nebude moct měnit
 root.resizable(False, False)
+# font
 font = ("Comic Sans MS", 8)
 
 
+# zkontroluje textboxy, jestli jsou prázdne tak doplní 0 aby to šlo potom počítat
 def checkTextBoxs():
     if(TextboxSekundy.get() == ""):
         TextboxSekundy.insert(0, 0)
@@ -20,6 +27,7 @@ def checkTextBoxs():
     converter(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
 
 
+# tady je to kouzlo
 def converter(h, m, s):
     # aby číslo bylo bez decimálního čísla musíme ho vykrátit 60
     # potom se zjistí zbytek
@@ -65,7 +73,7 @@ def converter(h, m, s):
 
 
 def main():
-    print("bruh main")
+    print("start...")
 
 
 if __name__ == "__main__":
