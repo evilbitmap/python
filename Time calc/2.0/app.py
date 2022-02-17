@@ -38,14 +38,14 @@ def converter(h, m, s):
     # tady se zjistí kolik je minuta a přídá se m2
     m = (m - mZbytek) / 60 + m2
 
-    # číslo nesmí bejt decimální proto...
+    # číslo nesmí bejt decimální proto
+    # a zjistí se zbytek
     h = h * 60
-    # zjistí se zbytek
     hZbytek = h % 60
 
     # do minut se přídá zbytek hodin
-    m = m + hZbytek
     # a potom se zjistí zbytek u minut
+    m = m + hZbytek
     mZbytek = m % 60
 
     # pokud minuta bude větší než 59 tak se to přídá
