@@ -1,13 +1,18 @@
-from cgitb import text
 from tkinter import *
 from tkinter import messagebox
 # window
+# root
 root = Tk()
+# framy - na layout
 frame = Frame(root)
 frame2 = Frame(root)
+# jméno okna
 root.title("Time converter")
-root.geometry("650x200")
+# velikost okna
+root.geometry("650x225")
+# uživatel nebude moct měnit velikost okna
 root.resizable(False, False)
+# font
 font = ("Comic Sans MS", 8)
 
 
@@ -19,12 +24,17 @@ def checkTextBoxs():
     if(TextboxHodiny.get() == ""):
         TextboxHodiny.insert(0, 0)
     try:
-        converter(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
+        convert(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
     except(ValueError):
         messagebox.showerror("ERROR: Wrong input!", "Prosím zadej validní input")
 
+def clear():
+    labelSekundy.config(text=0.0)
+    labelMinuty.config(text=0.0)
+    labelhodiny.config(text=0.0)
 
-def converter(h, m, s):
+
+def convert(h, m, s):
     # aby číslo bylo bez decimálního čísla musíme ho vykrátit 60
     # potom se zjistí zbytek
     m = m * 60
@@ -63,17 +73,10 @@ def converter(h, m, s):
     h = h % 60
 
     # vypiš čísla
-    labelhodiny.config(text=h)
     labelSekundy.config(text=s)
     labelMinuty.config(text=m)
+    labelhodiny.config(text=h)
 
-
-def main():
-    print("bruh main")
-
-
-if __name__ == "__main__":
-    main()
 
 # Label main
 labelMain = Label(root, text="Převod času", font=("Comic Sans MS", 16), anchor=CENTER)
@@ -100,22 +103,31 @@ Label(frame2, text="Výsledek", font=("Comic Sans MS", 16), anchor=CENTER).grid(
 
 # Label Hodiny výsledek
 Label(frame2, text="Hodiny: ").grid(row=1, column=0)
-labelhodiny = Label(frame2, text="", font=font)
+labelhodiny = Label(frame2, text="0.0", font=font)
 labelhodiny.grid(row=1, column=1)
 
 # Label Minuty výsledek
 Label(frame2, text="Minuty: ").grid(row=2, column=0)
-labelMinuty = Label(frame2, text="", font=font)
+labelMinuty = Label(frame2, text="0.0", font=font)
 labelMinuty.grid(row=2, column=1)
 
 # Label Sekundy výsledek
 Label(frame2, text="Sekundy: ").grid(row=3, column=0)
-labelSekundy = Label(frame2, text="", font=font)
+labelSekundy = Label(frame2, text="0.0", font=font)
 labelSekundy.grid(row=3, column=1)
 
 # button převést
-Button(frame2, text="převést", command=checkTextBoxs).grid(row=4)
+Button(frame2, text="Převést", command=checkTextBoxs).grid(row=4, column=0)
 
-frame.pack()
-frame2.pack()
-root.mainloop()
+# button clear
+Button(frame2, text="Clear", command=clear).grid(row=5, pady=10)
+
+
+def main():
+    frame.pack()
+    frame2.pack()
+    root.mainloop()
+
+
+if __name__ == "__main__":
+    main()
