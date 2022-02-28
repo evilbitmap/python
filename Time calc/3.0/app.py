@@ -13,7 +13,7 @@ root.geometry("650x225")
 # uživatel nebude moct měnit velikost okna
 root.resizable(False, False)
 # font
-font = ("Comic Sans MS", 8)
+Font = ("Comic Sans MS", 8)
 
 
 def checkTextBoxs():
@@ -85,18 +85,18 @@ labelMain = Label(root, text="Převod času", font=("Comic Sans MS", 16), anchor
 labelMain.pack()
 
 # Label + Textbox Hodiny
-Label(frame, text="Hodiny: ", font=font).grid(row=0, column=0)
-TextboxHodiny = Entry(frame, font=font)
+Label(frame, text="Hodiny: ", font=Font).grid(row=0, column=0)
+TextboxHodiny = Entry(frame, font=Font)
 TextboxHodiny.grid(row=0, column=1)
 
 # Label + Textbox Minuty
-Label(frame, text="Minuty: ", font=font).grid(row=0, column=2, padx=10)
-TextboxMinuty = Entry(frame, font=font)
+Label(frame, text="Minuty: ", font=Font).grid(row=0, column=2, padx=10)
+TextboxMinuty = Entry(frame, font=Font)
 TextboxMinuty.grid(row=0, column=3)
 
 # Label + Textbox Sekundy
-Label(frame, text="Sekundy: ", font=font).grid(row=0, column=4, padx=10)
-TextboxSekundy = Entry(frame, font=font)
+Label(frame, text="Sekundy: ", font=Font).grid(row=0, column=4, padx=10)
+TextboxSekundy = Entry(frame, font=Font)
 TextboxSekundy.grid(row=0, column=5)
 
 # Mezera
@@ -105,17 +105,17 @@ Label(frame2, text="Výsledek", font=("Comic Sans MS", 16), anchor=CENTER).grid(
 
 # Label Hodiny výsledek
 Label(frame2, text="Hodiny: ").grid(row=1, column=0)
-labelhodiny = Label(frame2, text="0.0", font=font)
+labelhodiny = Label(frame2, text="0.0", font=Font)
 labelhodiny.grid(row=1, column=1)
 
 # Label Minuty výsledek
 Label(frame2, text="Minuty: ").grid(row=2, column=0)
-labelMinuty = Label(frame2, text="0.0", font=font)
+labelMinuty = Label(frame2, text="0.0", font=Font)
 labelMinuty.grid(row=2, column=1)
 
 # Label Sekundy výsledek
 Label(frame2, text="Sekundy: ").grid(row=3, column=0)
-labelSekundy = Label(frame2, text="0.0", font=font)
+labelSekundy = Label(frame2, text="0.0", font=Font)
 labelSekundy.grid(row=3, column=1)
 
 # button převést
