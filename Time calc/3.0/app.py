@@ -23,8 +23,10 @@ def checkTextBoxs():
         TextboxMinuty.insert(0, 0)
     if(TextboxHodiny.get() == ""):
         TextboxHodiny.insert(0, 0)
+        # Zkusí vyvolat funkci
     try:
         convert(float(TextboxHodiny.get()), float(TextboxMinuty.get()), float(TextboxSekundy.get()))
+        # pokud bude špatnej input (ValueError) tak...
     except(ValueError):
         messagebox.showerror("ERROR: Wrong input!", "Prosím zadej validní input")
 
